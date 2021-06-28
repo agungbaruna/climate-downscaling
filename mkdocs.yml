@@ -1,0 +1,34 @@
+site_name: Statistical Downscaling
+site_url: https://github.com/agungbaruna
+markdown_extensions:
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+plugins:
+  - search
+  - bibtex:
+      bib_file: 'referensi.bib'
+      cite_style: 'pandoc'
+nav:
+  - Home: '0_index.md'
+  - Pendahuluan: '1_pendahuluan.md'
+  - Panduan: '2_metode.md'
+theme: 
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
