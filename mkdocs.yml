@@ -1,11 +1,15 @@
-site_name: Statistical Downscaling
+site_name: Downscaling di Dalam Ilmu Iklim
 site_url: https://github.com/agungbaruna
 markdown_extensions:
   - pymdownx.snippets
+  - attr_list
   - pymdownx.highlight:
       linenums: true
   - pymdownx.superfences
   - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.arithmatex:
       generic: true
 plugins:
@@ -14,9 +18,8 @@ plugins:
       bib_file: 'referensi.bib'
       cite_style: 'pandoc'
 nav:
-  - Home: '0_index.md'
-  - Pendahuluan: '1_pendahuluan.md'
-  - Panduan: '2_metode.md'
+  - 'Dynamical Downscaling': '1_dyn-downscaling.md'
+  - 'Statistical Downscaling': '2_sta-downscaling.md'
 theme: 
   name: material
   palette:
