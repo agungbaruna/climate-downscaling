@@ -244,7 +244,7 @@ Jika sudah ada program `geogrid.exe`, `metgrid.exe`, dan `ungrib.exe`, maka WPS 
 
 ### 3. Mengunduh Data
 
-Data yang diperlukan untuk menjalankan WRF terdiri dari data geografis (mis. ketinggian topografi, tipe tutupan lahan, albedo, *leaf area index*) dan data cuaca. Anda dapat mengunduh dan mengekstrak data geografis yang telah disediakan oleh pengembang WRF dengan mengetik perintah 
+Data yang diperlukan untuk menjalankan WRF terdiri dari data geografis (mis. ketinggian topografi, tipe tutupan lahan, albedo, *leaf area index*) dan data cuaca. Anda dapat mengunduh dan mengekstrak data yang telah disediakan oleh pengembang WRF dengan mengetik perintah 
 ```bash
 # File size about 2.6 GB
 wget https://www2.mmm.ucar.edu/wrf/src/wps_files/geog_high_res_mandatory.tar.gz
@@ -252,6 +252,33 @@ wget https://www2.mmm.ucar.edu/wrf/src/wps_files/geog_high_res_mandatory.tar.gz
 gunzip geog_high_res_mandatory.tar.gz
 tar -xf geog_high_res_mandatory.tar
 ```
+
+Tabel di bawah ini merupakan variabel cuaca dan permukaan lahan minimal yang diperlukan untuk menjalankan simulasi WRF
+
+| Kode variabel cuaca yang diproses `metgrid.exe` |    Satuan    |                           Nama variabel                           |                                  Keterangan                                   |
+| :---------------------------------------------: | :----------: | :---------------------------------------------------------------: | :---------------------------------------------------------------------------: |
+|                       TT                        |     $K$      |                Suhu udara pada berbagai ketinggian                |                                                                               |
+|                       RH                        |      %       |            kelembapan relatif pada berbagai ketinggian            |                 tidak diperlukan jika ada kelembapan spesifik                 |
+|                    SPECHUMD                     | $kg~kg^{-1}$ |           kelembapan spesifik pada berbagai ketinggian            |                 tidak diperlukan jika ada kelemabapan relatif                 |
+|                       UU                        |  $m~s^{-1}$  |          kecepatan angin zonal pada berbagai ketinggian           |                                                                               |
+|                       VV                        |  $m~s^{-1}$  |        kecepatan angin meridional pada berbagai ketinggian        |                                                                               |
+|                       GHT                       |     $m$      |         ketinggian geopotensial pada berbagai ketinggian          |                                                                               |
+|                    PRESSURE                     |     $Pa$     |              tekanan udara pada berbagai ketinggian               |                  diperlukan untuk kumpulan data non-isobarik                  |
+|                      PSFC                       |     $Pa$     |                      tekanan udara permukaan                      |                                                                               |
+|                      PMSL                       |     $Pa$     |           tekanan udara pada rata-rata tinggi muka laut           |                                                                               |
+|                    SKINTEMP                     |     $K$      |                       suhu permukaan tanah                        |                                                                               |
+|                     SOILHGT                     |     $m$      |                          kedalaman tanah                          |                                                                               |
+|                       TT                        |     $K$      |      suhu udara pada ketinggian 2 m di atas permukaan tanah       |                                                                               |
+|                       RH                        |      %       |   kelembapan relatif pada ketinggian 2 m di atas permukaan bumi   |                 tidak diperlukan jika ada kelembapan spesifik                 |
+|                    SPECHUMD                     | $kg~kg^{-1}$ |  kelembapan spesifik pada ketinggian 2 m di atas permukaan bumi   |                 tidak diperlukan jika ada kelemabapan relatif                 |
+|                       UU                        |  $m~s^{-1}$  |   kecepatan angin zonal ketinggian 10 m di atas permukaan bumi    |                                                                               |
+|                       VV                        |  $m~s^{-1}$  | kecepatan angin meridional ketinggian 10 m di atas permukaan bumi |                                                                               |
+|                     LANDSEA                     | $0$ atau $1$ |                       0 = air, 1 = daratan                        |                                                                               |
+|                   SM*tttbbb*                    | $m^3~m^{-3}$ |                         kelembapan tanah                          |   *ttt*: lapisan kedalaman atas. *bbb*: lapisan kedalaman bawah (dalam cm)    |
+|                   ST*tttbbb*                    |     $K$      |                            suhu tanah                             |   *ttt*: lapisan kedalaman atas. *bbb*: lapisan kedalaman bawah (dalam cm)    |
+|                   SOILM*mmm*                    | $kg~m^{-3}$  |                         kelembapan tanah                          | *mmm*: kedalaman tanah (dalam cm). Tidak diperlukan jika sudah ada SM*tttbbb* |
+|                   SOILT*mmm*                    |     $K$      |                            suhu tanah                             | *mmm*: kedalaman tanah (dalam cm). Tidak diperlukan jika sudah ada ST*tttbbb* |
+
 
 Data cuaca yang digunakan dalam tutorial ini bersumber dari ERA5. Data cuaca yang diunduh memiliki resolusi temporal per 6 jam. 
 
@@ -261,8 +288,8 @@ Anda dapat mengunduh data ini dari website [https://cds.climate.copernicus.eu](h
 pip install cdsapi #atau pip3 install cdsapi
 ```
 
-Sebelum mengunduh data ERA5, Anda perlu mengetahui API key pada akun CDS Anda dengan mengklik **Climate Data Store API**. Kemudian, salin API key Anda ke fungsi `cdsapi.Client(key = "......")`.
-
+Sebelum mengunduh data ERA5, Anda perlu mengetahui API key pada akun CDS Anda dengan mengklik **Climate Data Store API**. Kemudian, salin API key Anda ke fungsi `cdsapi.Client(key = "......")` (Lihat lingkaran merah pada gambar di bawah ini)
+  
 ![CDS Webpage](./img/cds.png)
 
 + Data atmosfer
@@ -281,19 +308,12 @@ c.retrieve(
         'product_type':'reanalysis',
         'format':'grib',
         'pressure_level':[
-            '1','2','3',
-            '5','7','10',
-            '20','30','50',
-            '70','100','125',
-            '150','175','200',
-            '225','250','300',
-            '350','400','450',
-            '500','550','600',
-            '650','700','750',
-            '775','800','825',
-            '850','875','900',
-            '925','950','975',
-            '1000'
+            '1','2','3','5','7','10','20','30','50','70',
+            '100','125','150','175','200','225',
+            '250','300','350','400','450','500',
+            '550','600','650','700','750','775',
+            '800','825','850','875','900','925',
+            '950','975','1000'
         ],
         'date':f'{start_date}/{end_date}',
         'area':'12/90/-12/150',   #N/W/S/E

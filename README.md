@@ -1,6 +1,3 @@
 # Metode *Downscaling* di Dalam Ilmu Iklim
 
-Berbagai macam blablabla
-
-
-blabla
+Dokumen ini memberikan informasi kepada Anda mengenai teknik *downscaling* di dalam ilmu iklim.
