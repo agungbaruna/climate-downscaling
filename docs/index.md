@@ -1,5 +1,12 @@
 # Metode *Downscaling* 
 
+<span class='git-page-authors'>
+    <b>Oleh:</b> 
+    <a href='mailto:nooragung97@gmail.com'>
+        Agung Baruna Setiawan Noor
+    </a>
+</span>
+
 Metode *downscaling* adalah cara mendapatkan informasi lebih detil pada skala tinggi. Kata *downscaling* biasanya merujuk pada peningkatan resolusi spasial maupun temporal. Metode ini memiliki dua pendekatan, yaitu statistik dan dinamik. Di dalam ilmu iklim, metode ini umum digunakan pada model iklim global (*Global Climate Model*/GCM). 
 
 GCM adalah alat utama dan paling komprehensif yang digunakan dalam simulasi iklim pada masa lalu maupun masa mendatang. GCM memiliki kemampuan dalam melakukan simulasi variabilitas iklim dan sifat-sifat fisis di permukaan bumi dengan perhitungan secara matematis yang menggambarkan proses, interaksi, dan timbal balik pada atmosfer, laut, dan biotik. Kelemahan dalam GCM adalah ketidakmampuan menangkap kejadian-kejadian iklim pada skala regional maupun lokal karena memiliki resolusi spasial yang terlalu kasar sekitar >100 km. Metode *downscaling* di dalam ilmu iklim umum digunakan pada kajian hidrologi [@piani2010suhu], pertanian [@glotter2014], dan sistem perkotaan [@smid2018].
