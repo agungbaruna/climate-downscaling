@@ -1,6 +1,4 @@
-# Metode *Statistical Downscaling*
 
-*Statistical Downscaling* melibatkan hubungan antara data historis atmosfer dalam skala besar dengan karakteristik iklim lokal. Secara komputasi, sumber daya yang diperlukan untuk menerapkan pendekatan ini lebih efisien dan murah jika dibandingkan dengan pendekatan *Dynamical Downscaling*. Akan tetapi, metode ini memerlukan data observasi dengan kualitas data yang tinggi dan kemungkinan hanya bisa diterapkan pada data bulanan.    
 
 ## Metode Delta
 

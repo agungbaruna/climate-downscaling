@@ -18,7 +18,9 @@ plugins:
       bib_file: 'referensi.bib'
       cite_style: 'pandoc'
 nav:
-  - 'Dynamical Downscaling': '1_dyn-downscaling.md'
+  - 'Apa itu Downscaling?': 'index.md'
+  - 'Dynamical Downscaling': 
+      - 'Weather Research Forecasting': 'Dynamical Downscaling/WRF.md'
   - 'Statistical Downscaling': '2_sta-downscaling.md'
 theme: 
   name: material

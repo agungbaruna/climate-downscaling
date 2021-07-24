@@ -1,3 +1,0 @@
-# Pendahuluan
-
-Oleh karena itu, metode *downscaling* digunakan untuk memperhalus resolusi spasial GCM untuk mendapatkan informasi iklim pada skala lokal. Terdapat dua pendekatan untuk meningkatkan resolusi spasial dari data GCM, yaitu *Statistical Downscaling* dan *Dynamical Downscaling*. Metode *Statistical Downscaling* mengacu pada hubungan statistik antara variabel iklim dari data GCM dan variabel iklim lokal. Metode *Dynamical Downscaling* menggunakan *Regional Climate Model* (RCM) dengan memperhitungkan proses-proses fisika maupun interaksi pada atmosfer, lautan, daratan, lapisan es, dan biofisik. 

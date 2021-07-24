@@ -1,14 +1,4 @@
-# *Dynamical Downscaling*
-
-Teknik *dynamical downscaling* dapat merepresentasikan proses-proses fisika (hukum termodinamika, hukum kekekalan energi, hukum gerak) pada setiap skala grid. Teknik ini membutuhkan kondisi batas menggunakan data GCM dan perlu memilih lokasi saat kita ingin melakukan simulasi. Teknik ini merujuk pada penggunaan model iklim regional (*Regional Climate Model*, RCM) untuk meningkatkan skala spasial dari GCM. Model iklim regional meliputi komponen dinamik dan fisik. Model dinamik memperhitungkan komponen fisika dari model regional yang mencakup proses-proses fisik, seperti radiasi gelombang panjang dan pendek, presipitasi, dan proses pertukaran energi di permukaan bumi atau laut. Proses pada skala sub-piksel dimodelkan oleh parameterisasi dari persamaan diferensial [@maity2013].
-
-Pada tahun 1965, John Drake dan Ian Foster membahas tentang permasalahan mengenai *Parallel Computing* pada model iklim dan cuaca. Hal itu terkait dengan penyesuaian model global atmosfer bumi dan lautan pada perhitungan secara paralel. Masalah khusus difokuskan pada karakteristik khusus, masalah, dan strategi implementasi komputasi paralel untuk cabang terkait aplikasi geofisika, yaitu model skala regional [@maity2013]. 
-
-Sumber daya komputasi yang diperlukan untuk menjalankan teknik ini lebih banyak daripada *Statistical Downscaling*. Sumber daya komputasi yang dibutuhkan semakin besar jika resolusi spasial yang kita inginkan semakin tinggi.
-
-Di dalam artikel ini, kami menyajikan cara memasang dan menjalankan *Weather Research Forecasting* (WRF) pada sistem operasi Linux (Distro Ubuntu). 
-
-## Weather Research Forecasting (WRF)
+# Weather Research Forecasting (WRF)
 
 Penggunaan model WRF semakin berkembang saat ini dengan tujuan riset dan penggunaan operasional. WRF memiliki spesifikasi pada berbagai aplikasi prediksi di dalam sistem bumi, seperti kimia atmosfer, hidrologi, kebakaran hutan, dan siklon. WRF menjadi salah satu model atmosfer bumi yang paling banyak digunakan di dunia sejak rilis pertama kali pada tahun 2000. Sebanyak lebih dari 36000 pengguna WRF tersebar di 162 negara, termasuk Indonesia yang telah menggunakan WRF untuk kebutuhan operasional. Kerangka kerja perangkat lunak WRF mendukung komputasi paralel yang efisien pada berbagai platform komputasi. Model WRF bisa dijalankan pada personal komputer hingga supercomputer yang memiliki sistem operasi UNIX [@powers2017]. Ada dua jenis model WRF berdasarkan penyelesaian persamaan aliran fluida atmosfer, yaitu *Advanced Research WRF* (ARW) dan *Nonhydrostatic Mesoscale Model* (NMM). Pengembang kedua tipe model WRF berbeda. WRF-ARW dikembangkan oleh National Centre of Atmosphere Research (NCAR), sedangkan WRF-NMM dikembangkan oleh National Centre of Environmental Prediction (NCEP) [@skamarock2019]. 
 

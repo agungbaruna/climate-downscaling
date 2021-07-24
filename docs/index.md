@@ -1,12 +1,3 @@
-# Metode *Downscaling* 
-
-<span class='git-page-authors'>
-    <b>Oleh:</b> 
-    <a href='mailto:nooragung97@gmail.com'>
-        Agung Baruna Setiawan Noor
-    </a>
-</span>
-
 Metode *downscaling* adalah cara mendapatkan informasi lebih detil pada skala tinggi. Kata *downscaling* biasanya merujuk pada peningkatan resolusi spasial maupun temporal. Metode ini memiliki dua pendekatan, yaitu statistik dan dinamik. Di dalam ilmu iklim, metode ini umum digunakan pada model iklim global (*Global Climate Model*/GCM). 
 
 GCM adalah alat utama dan paling komprehensif yang digunakan dalam simulasi iklim pada masa lalu maupun masa mendatang. GCM memiliki kemampuan dalam melakukan simulasi variabilitas iklim dan sifat-sifat fisis di permukaan bumi dengan perhitungan secara matematis yang menggambarkan proses, interaksi, dan timbal balik pada atmosfer, laut, dan biotik. Kelemahan dalam GCM adalah ketidakmampuan menangkap kejadian-kejadian iklim pada skala regional maupun lokal karena memiliki resolusi spasial yang terlalu kasar sekitar >100 km. Metode *downscaling* di dalam ilmu iklim umum digunakan pada kajian hidrologi [@piani2010suhu], pertanian [@glotter2014], dan sistem perkotaan [@smid2018].
@@ -31,6 +22,19 @@ Model WGEN [@richardson1981] merupakan contoh dari pendekatan ini. Model WGEN da
 ### 4. *Limited-area climate models* (LAM)
 
 Opsi langkah terakhir untuk melakukan *downscaling* terhadap GCM adalah dengan menyematkan model iklim area terbatas yang beresolusi lebih tinggi. GCM digunakan sebagai penentuan kondisi batas. Sebenarnya, LAM pada waktu saat ini dapat diistilahkan sebagai *Regional Climate Model* (RCM). RCM memiliki resolusi spasial <100 km. RCM memerlukan sumber daya komputer yang hampir sama dengan menjalankan GCM. RCM memiliki kemampuan dalam mensimulasikan proses-proses atmosfer pada skala meso, seperti curah hujan orografis dan konveksi awan. Contoh dari RCM adalah *Weather Research Forecasting* (WRF) [@skamarock2019] dan RegCM.
+
+# *Dynamical Downscaling*
+
+Teknik ini dapat menjelaskan proses-proses fisika (hukum termodinamika, hukum kekekalan energi, hukum gerak) pada setiap skala grid. Teknik ini membutuhkan kondisi batas menggunakan data GCM dan perlu memilih lokasi saat kita ingin melakukan simulasi. Teknik ini merujuk pada penggunaan model iklim regional (*Regional Climate Model*, RCM) untuk meningkatkan skala spasial dari GCM. Model iklim regional meliputi komponen dinamik dan fisik. Model dinamik memperhitungkan komponen fisika dari model regional yang mencakup proses-proses fisik, seperti radiasi gelombang panjang dan pendek, presipitasi, dan proses pertukaran energi di permukaan bumi atau laut. Proses pada skala sub-piksel dimodelkan oleh parameterisasi dari persamaan diferensial [@maity2013].
+
+Pada tahun 1965, John Drake dan Ian Foster membahas tentang permasalahan mengenai *Parallel Computing* pada model iklim dan cuaca. Hal itu terkait dengan penyesuaian model global atmosfer bumi dan lautan pada perhitungan secara paralel. Masalah khusus difokuskan pada karakteristik khusus, masalah, dan strategi implementasi komputasi paralel untuk cabang terkait aplikasi geofisika, yaitu model skala regional [@maity2013]. 
+
+Sumber daya komputasi yang diperlukan untuk menjalankan teknik ini lebih banyak daripada *Statistical Downscaling*. Sumber daya komputasi yang dibutuhkan semakin besar jika resolusi spasial yang kita inginkan semakin tinggi.
+
+
+# *Statistical Downscaling*
+
+Teknik ini melibatkan hubungan antara data historis atmosfer dalam skala besar dengan karakteristik iklim lokal. Secara komputasi, sumber daya yang diperlukan untuk menerapkan pendekatan ini lebih efisien dan murah jika dibandingkan dengan pendekatan *Dynamical Downscaling*. Akan tetapi, metode ini memerlukan data observasi dengan kualitas data yang tinggi dan kemungkinan hanya bisa diterapkan pada variabel cuaca tertentu dengan skala waktu bulanan, seperti curah hujan.   
 
 
 \bibliography
